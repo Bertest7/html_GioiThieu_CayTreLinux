@@ -19,7 +19,8 @@ name:"NGUYEN VAN PHUONG - Công ty Minh Tâm ITS",
 type:"company",
 amount:"1000K",
 msg:"",
-avatar:"/images/cong-ty-minh-tam.png"
+avatar:"/images/cong-ty-minh-tam.png",
+link: "https://minhtamits.com/"
 },
 {
 name:"PHAM NGOC TRUNG",
@@ -61,7 +62,8 @@ name:"PHAM NGOC THACH - Mekong Solution",
 type:"company",
 amount:"499K",
 msg:"CÔNG TY TNHH DỊCH VỤ GIẢI PHÁP MÊ KÔNG (Mekong Solution – MKSOL)",
-avatar:"/images/myworkspace-vn-logo-moi.png"
+avatar:"/images/myworkspace-vn-logo-moi.png",
+link: "https://myworkspace.vn/"
 },
 {
 name:"NGUYEN MINH VUONG",
@@ -89,7 +91,8 @@ name:"LE BAC NAM - Công ty Công Nghệ 44+",
 type:"company",
 amount:"4444444K",
 msg:"",
-avatar:"/images/44plus-vn-logo.png"
+avatar:"/images/44plus-vn-logo.png",
+link: "https://44plus.vn/"
 },
 {
 name:"NGUYEN QUANG HOANG",
@@ -240,19 +243,17 @@ icon:"fas fa-user"
 }
 ];
 
-// Khởi tạo tất cả sau khi DOM đã sẵn sàng
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Khởi tạo Swiper
 const swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 20,
     loop: true,
     loopFillGroupWithBlank: true,
-    loopAdditionalSlides: 10, // ✅ Luôn tạo thêm slide ảo để đủ số lượng
+    loopAdditionalSlides: 10, 
     allowSlideNext: true,
     allowSlidePrev: true,
-    watchSlidesProgress: false, // ✅ Tắt tính năng tự động ẩn nút
+    watchSlidesProgress: false, 
     grabCursor: true,
     autoplay: {
         delay: 5000,
@@ -265,8 +266,8 @@ const swiper = new Swiper(".mySwiper", {
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
-        enabled: true, // ✅ Luôn bật điều hướng
-        hideOnClick: false, // ✅ Không bao giờ ẩn nút
+        enabled: true, 
+        hideOnClick: false, 
     },
     breakpoints: {
         640: {
@@ -291,33 +292,47 @@ const swiper = new Swiper(".mySwiper", {
             swiper.update();
             return;
         }
+    
+        noResults.style.display = 'none';
+    
+        list.innerHTML = items.map(item => {
+    
+            let avatarHTML = '';
+            if (item.avatar) {
+                avatarHTML = `
+                    <a href="${item.link || '#'}" target="_blank">
+                        <img src="${item.avatar}" class="avatar">
+                    </a>
+                `;
+            }
+    
+            return `
+                <div class="swiper-slide">
+                    <div class="sponsor-node" data-aos="fade-up">
 
-    noResults.style.display = 'none';
+                        <div class="sponsor-info">
+                            <h3>${item.name}</h3>
+                            <div class="amount">Ủng Hộ: ${item.amount}</div>
+                            <p class="msg">${item.msg ? `"${item.msg}"` : ""}</p>
+                            <div class="bottom-row">
+                  
+                                ${avatarHTML ? avatarHTML : ""}
 
-    list.innerHTML = items.map(item => {
+                                ${item.link ? `
+                                    <a href="${item.link}" target="_blank" class="company-link">
+                                        ${item.link}
+                                    </a>
+                                ` : ""}
 
-        const avatarHTML = item.avatar
-            ? `<img src="${item.avatar}" class="avatar">`
-            : `<div class="sponsor-avatar"><i class="${item.icon}"></i></div>`;
+                            </div>
 
-        return `
-            <div class="swiper-slide">
-                <div class="sponsor-node" data-aos="fade-up">
+                        </div>
 
-                    ${avatarHTML}
-
-                    <div class="sponsor-info">
-                        <h3>${item.name}</h3>
-                        <div class="amount">${item.amount}</div>
-                        <p class="msg">"${item.msg || ""}"</p>
                     </div>
-
                 </div>
-            </div>
-        `;
-    }).join('');
-
-        // Cập nhật lại Swiper sau khi thay đổi slide
+            `;
+        }).join('');
+    
         swiper.update();
         swiper.slideTo(0, 0);
     }
@@ -362,21 +377,17 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             ctaBox.classList.add('visible');
-            // Sau khi lật xong thì ngừng quan sát để không lật lại
             observer.unobserve(ctaBox);
         }
     });
 }, {
-    threshold: 0.3 // Lật lên khi 30% phần tử đã hiện ra
+    threshold: 0.3 
 });
 
 observer.observe(ctaBox);
-
-    // Khởi tạo ban đầu
     render(sponsors);
     animateCounter('count-sponsors', 42);
     animateCounter('count-money', 128);
 
-    // Gắn hàm filter vào window để HTML có thể gọi được
     window.filterSponsors = filterSponsors;
 });
