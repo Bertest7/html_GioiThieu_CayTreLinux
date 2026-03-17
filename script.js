@@ -19,7 +19,7 @@ name:"NGUYEN VAN PHUONG - Công ty Minh Tâm ITS",
 type:"company",
 amount:"1000K",
 msg:"",
-avatar:"/images/cong-ty-minh-tam.png",
+avatar:"images/cong-ty-minh-tam.png",
 link: "https://minhtamits.com/"
 },
 {
@@ -62,7 +62,7 @@ name:"PHAM NGOC THACH - Mekong Solution",
 type:"company",
 amount:"499K",
 msg:"CÔNG TY TNHH DỊCH VỤ GIẢI PHÁP MÊ KÔNG (Mekong Solution – MKSOL)",
-avatar:"/images/myworkspace-vn-logo-moi.png",
+avatar:"images/myworkspace-vn-logo-moi.png",
 link: "https://myworkspace.vn/"
 },
 {
@@ -70,7 +70,7 @@ name:"NGUYEN MINH VUONG",
 type:"personal",
 amount:"499999K",
 msg:"Trang web có nhiều cảnh đẹp và món ăn ngon",
-avatar:"/images/logo_vibe.png"
+avatar:"images/logo_vibe.png"
 },
 {
 name:"PHAM NGOC TRUNG",
@@ -91,7 +91,7 @@ name:"LE BAC NAM - Công ty Công Nghệ 44+",
 type:"company",
 amount:"4444444K",
 msg:"",
-avatar:"/images/44plus-vn-logo.png",
+avatar:"images/44plus-vn-logo.png",
 link: "https://44plus.vn/"
 },
 {
@@ -106,7 +106,7 @@ name:"Nhà tài trợ ẩn danh",
 type:"personal",
 amount:"500K",
 msg:"",
-avatar:"/images/hsyt-vn-logo.png"
+avatar:"images/hsyt-vn-logo.png"
 },
 {
 name:"MA KHANH SON",
@@ -141,7 +141,7 @@ name:"Nhà tài trợ ẩn danh",
 type:"personal",
 amount:"500K",
 msg:"",
-avatar:"/images/maichiparser-com-logo-moi.png"
+avatar:"images/maichiparser-com-logo-moi.png"
 },
 {
 name:"Nhà tài trợ ẩn danh",
@@ -218,7 +218,7 @@ name:"NGUYEN QUANG DUONG",
 type:"personal",
 amount:"500K",
 msg:"",
-avatar:"/images/vinettech-vn-logo-1024x196.png"
+avatar:"images/vinettech-vn-logo-1024x196.png"
 },
 {
 name:"CAO THE TRONG",
